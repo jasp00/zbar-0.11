@@ -1,3 +1,9 @@
+zbar (0.11) unstable; urgency=low
+
+  * Take over.
+
+ -- Javier Serrano Polo <javier@jasp.net>  Fri, 19 Oct 2018 02:27:21 +0200
+
 zbar (0.10+doc-10.1jasp1) unstable; urgency=low
 
   * Derivative upload.
