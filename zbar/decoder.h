@@ -48,6 +48,9 @@
 #ifdef ENABLE_QRCODE
 # include "decoder/qr_finder.h"
 #endif
+#ifdef ENABLE_SQCODE
+# include "decoder/sq_finder.h"
+#endif
 
 /* size of bar width history (implementation assumes power of two) */
 #ifndef DECODE_WINDOW
@@ -106,6 +109,9 @@ struct zbar_decoder_s {
 #endif
 #ifdef ENABLE_QRCODE
     qr_finder_t qrf;                    /* QR Code finder state */
+#endif
+#ifdef ENABLE_SQCODE
+    sq_finder_t sqf;                    /* SQ Code finder state */
 #endif
 };
 

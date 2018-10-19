@@ -32,6 +32,7 @@
 #if defined(DEBUG_DECODER) || defined(DEBUG_EAN) ||             \
     defined(DEBUG_CODE39) || defined(DEBUG_I25) ||              \
     defined(DEBUG_CODE128) || defined(DEBUG_QR_FINDER) ||       \
+    defined(DEBUG_SQ_FINDER) ||                                 \
     (defined(DEBUG_PDF417) && (DEBUG_PDF417 >= 4))
 # define DEBUG_LEVEL 1
 #endif
@@ -71,6 +72,9 @@ zbar_decoder_t *zbar_decoder_create ()
 #endif
 #ifdef ENABLE_QRCODE
     dcode->qrf.config = 1 << ZBAR_CFG_ENABLE;
+#endif
+#ifdef ENABLE_SQCODE
+    dcode->sqf.config = 1 << ZBAR_CFG_ENABLE;
 #endif
 
     zbar_decoder_reset(dcode);
@@ -287,6 +291,12 @@ static inline int decoder_set_config_bool (zbar_decoder_t *dcode,
         break;
 #endif
 
+#ifdef ENABLE_SQCODE
+    case ZBAR_SQCODE:
+        config = &dcode->sqf.config;
+        break;
+#endif
+
     /* FIXME handle addons */
 
     default:
@@ -366,6 +376,7 @@ int zbar_decoder_set_config (zbar_decoder_t *dcode,
         zbar_decoder_set_config(dcode, ZBAR_CODE128, cfg, val);
         zbar_decoder_set_config(dcode, ZBAR_PDF417, cfg, val);
         zbar_decoder_set_config(dcode, ZBAR_QRCODE, cfg, val);
+        zbar_decoder_set_config(dcode, ZBAR_SQCODE, cfg, val);
         return(0);
     }
 

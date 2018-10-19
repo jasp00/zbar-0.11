@@ -194,5 +194,6 @@ initzbar (void)
     zbarEnumItem_New(tp_dict, symbol_enum, ZBAR_CODE39,  "CODE39");
     zbarEnumItem_New(tp_dict, symbol_enum, ZBAR_PDF417,  "PDF417");
     zbarEnumItem_New(tp_dict, symbol_enum, ZBAR_QRCODE,  "QRCODE");
+    zbarEnumItem_New(tp_dict, symbol_enum, ZBAR_SQCODE,  "SQCODE");
     zbarEnumItem_New(tp_dict, symbol_enum, ZBAR_CODE128, "CODE128");
 }
