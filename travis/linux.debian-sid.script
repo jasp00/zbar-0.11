@@ -11,7 +11,8 @@ then
 	sudo pbuilder --create --basetgz "$BASETGZ" --mirror $MIRROR \
 		--distribution sid --architecture amd64 \
 		--debootstrapopts --variant=buildd \
-		--debootstrapopts --keyring=$KEYRING
+		--debootstrapopts --keyring=$KEYRING \
+		--debootstrapopts --include=perl
 	touch "$BASETGZ.stamp"
 else
 	sudo pbuilder --update --basetgz "$BASETGZ"
